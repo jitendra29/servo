@@ -648,6 +648,10 @@ impl XMLHttpRequestMethods for XMLHttpRequest {
         ByteString::new(self.filter_response_headers().to_string().into_bytes())
     }
 
+    // https://xhr.spec.whatwg.org/#the-overridemimetype()-method
+    fn OverrideMimeType(&self, mime: DOMString) {
+    }
+
     // https://xhr.spec.whatwg.org/#the-responsetype-attribute
     fn ResponseType(&self) -> XMLHttpRequestResponseType {
         self.response_type.get()
