@@ -65,6 +65,7 @@ interface XMLHttpRequest : XMLHttpRequestEventTarget {
   readonly attribute ByteString statusText;
   ByteString? getResponseHeader(ByteString name);
   ByteString getAllResponseHeaders();
+  [Throws]
   void overrideMimeType(DOMString mime);
   [SetterThrows]
            attribute XMLHttpRequestResponseType responseType;
