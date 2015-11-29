@@ -1102,6 +1102,19 @@ impl XMLHttpRequest {
         }
         Ok(())
     }
+
+    fn final_mime_type(&self) -> Option<Mime> {
+        if self.override_mime_type.borrow().is_some() {
+            return self.override_mime_type.borrow().clone();
+        } else {
+            match self.response_headers.borrow().get() {
+                Some(&ContentType(ref mime)) => {
+                    return Some(mime.clone());
+                },
+                None => { return None; }
+            }
+        }
+    }
 }
 
 trait Extractable {
